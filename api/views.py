@@ -2,10 +2,14 @@ from django.http.response import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-from .models import Company
+#from .models import Company
 import json
+from .models import Incoming
+
+
 
 # Create your views here.
+"""
 class CompanyView(View):
 
     @method_decorator(csrf_exempt)
@@ -64,5 +68,46 @@ class CompanyView(View):
         else:
             datos= {'message': "Companies not found.."}
         return JsonResponse(datos)
+
+"""
+class IncomingList(View):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    """def get(self, request, id=0):
+        if (id>0):
+            incomings=list(Incoming.objects.filter(id=id).values())
+            if len(incomings)> 0:
+                incoming=incomings[0]
+                datos= {'message': "Success", 'incomings': incoming}
+            else:
+                datos= {'message': "incomings not found.."}
+            return JsonResponse(datos)
+        else:
+            incomings= list(Incoming.objects.values())
+            if len(incomings)>0:
+                datos= {'message': "Success", 'incomings': incomings}
+            else:
+                datos= {'message': "incomings not found.."}
+        return JsonResponse(datos)
+    """
+
+    def post(self, request):
+        print(request.body)
+        jd=json.loads(request.body)
+        print(jd)
+        #Incoming.objects.create(timeStamp=jd['timeStamp'],conversationId=jd['conversationId'],payload=jd['payload'])
+        datos= {'message': "Success"}
+        return JsonResponse(datos)
+
+
+    #def put(self, request, id):
+        pass
+
+    #def delete(self, request,id):
+        pass
+
 
 

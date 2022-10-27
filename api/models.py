@@ -1,9 +1,11 @@
-from unittest.util import _MAX_LENGTH
+
 from django.db import models
 
 # Create your models here.
 
-class Company(models.Model):
-    name = models.CharField(max_length=50)
-    website = models.URLField(max_length=100)
-    foundation = models.PositiveIntegerField()
+class Incoming(models.Model):
+    timeStamp = models.DateTimeField(auto_now_add=True)
+    conversationId = models.CharField(max_length=500)
+    payload = models.CharField(max_length=500)
+    botResponse = models.CharField(max_length=500)
+
