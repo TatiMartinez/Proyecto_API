@@ -102,7 +102,7 @@ class IncomingList(View):
         print("result", result.pk)
         result.botResponse = userMessage(conversationId=jd['conversationId'],payload=jd['payload'])
         result.save()
-        datos= {'message': "Success"}
+        datos= {'message': "Success", "botResponse": result.botResponse}
         return JsonResponse(datos)
 
 
