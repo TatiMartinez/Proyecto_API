@@ -98,11 +98,9 @@ class IncomingList(View):
         print(request.body)
         jd=json.loads(request.body)
         #print(jd)
-        result= Incoming.objects.create(conversationId=jd['conversationId'],payload=jd['payload'])
-        print("result", result.pk)
-        result.botResponse = userMessage(conversationId=jd['conversationId'],payload=jd['payload'])
-        result.save()
-        datos= {'message': "Success", "botResponse": result.botResponse}
+        botResponse = userMessage(conversationId=jd['conversationId'],payload=jd['payload'])
+        Incoming.objects.create(conversationId=jd['conversationId'],payload=jd['payload'], botResponse=botResponse)
+        datos= {'message': "Success", "botResponse": botResponse}
         return JsonResponse(datos)
 
 
