@@ -22,6 +22,8 @@ def userMessage(payload, conversationId):
     
     conversation += " \nHuman: "+ payload + "\n AI:" 
 
+    
+
 
     response = openai.Completion.create(
         model="text-davinci-002",
