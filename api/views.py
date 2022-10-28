@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 #from .models import Company
 import json
 from .models import Incoming
-
+from .src import  userMessage
 
 
 # Create your views here.
@@ -97,8 +97,11 @@ class IncomingList(View):
     def post(self, request):
         print(request.body)
         jd=json.loads(request.body)
-        print(jd)
-        #Incoming.objects.create(timeStamp=jd['timeStamp'],conversationId=jd['conversationId'],payload=jd['payload'])
+        #print(jd)
+        result= Incoming.objects.create(conversationId=jd['conversationId'],payload=jd['payload'])
+        print("result", result.pk)
+        result.botResponse = userMessage(conversationId=jd['conversationId'],payload=jd['payload'])
+        result.save()
         datos= {'message': "Success"}
         return JsonResponse(datos)
 
