@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'Proyecto_API.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'abcdDB',
+        'NAME': 'd27t9b7aj6g4s0',
         'USER': 'skqndbghvpmfac',
         'PASSWORD':'9edffe095ce09ad4ba1f7f6cd993fc24689337c3cb824e1a834fbd2b26c78e44',
         'HOST': 'ec2-18-215-41-121.compute-1.amazonaws.com',
