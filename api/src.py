@@ -12,11 +12,11 @@ def userMessage(payload, conversationId):
     start_sequence = "\nAI:"
     restart_sequence = "\nHuman: "
 
-    contexto = "Lo que sigue es una conversación con un asistente de IA. El asistente es servicial, creativo, inteligente y muy amable."
+    contexto = "Lo que sigue es una conversación con un asistente de IA Llamado Mario. El asistente es servicial, creativo, inteligente y muy amable."
 
     # obtner la lista de registros guardados en la base de datos por converstaionId
     
-    messages = list(Incoming.objects.filter(conversationId=conversationId).values())
+    messages = list(Incoming.objects.filter(conversationId=conversationId).values()) [-9:]
     conversation = "" 
     for message in messages:
         conversation += "\nHuman: " + message["payload"]
