@@ -1,5 +1,6 @@
 import os
 import openai
+from .models import Incoming
 
 openai.api_key ="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"
 
@@ -14,13 +15,14 @@ def userMessage(payload, conversationId):
     contexto = "Lo que sigue es una conversación con un asistente de IA. El asistente es servicial, creativo, inteligente y muy amable."
 
     # obtner la lista de registros guardados en la base de datos por converstaionId
-    messages = [{"payload": "hola", "botResponse": "Muy  bien y vos"}, {"payload": "perfecto", "botResponse": "que lindo"}]
+    
+    messages = list(Incoming.objects.filter(conversationId=conversationId).values())
     conversation = "" 
     for message in messages:
         conversation += "\nHuman: " + message["payload"]
         conversation += "\nAI: "+ message["botResponse"]
     
-    conversation += " \nHuman: "+ payload + "\n AI:" 
+    conversation += " \nHuman: "+ payload + "\n AI:"
 
     
 
@@ -39,3 +41,4 @@ def userMessage(payload, conversationId):
     #print("response", response["choices"][0] ["text"] )
     bot = response["choices"][0] ["text"]
     return bot
+
