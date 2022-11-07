@@ -2,7 +2,7 @@ import os
 import openai
 from .models import Incoming
 
-openai.api_key ="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"
+openai.api_key =os.environ.get("OPENAI_KEY")
 
 
 
