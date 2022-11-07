@@ -9,7 +9,10 @@ openai.api_key =os.environ.get("OPENAI_KEY")
 
 def userMessage(payload, conversationId):
 
-    contexto = "Lo que sigue es una conversación con un asistente de IA Llamado Mario. El asistente es servicial, creativo, inteligente y muy amable. Asiste en una empresa, para guiar a sus empleados sobre horas trabajadas, bonos de sueldos, accesos a zonas restringuidas. Ademas motivar e insentivar a los empleados a realizar capacitaciones"
+    contexto = "Lo que sigue es una conversación con un asistente de IA Llamado MarBot."
+    contexto += "\n Mario trabajó 10 horas"
+    contexto += "\n Juan trabajó 18 horas"
+    contexto += "\n Susana trabajó 24 horas"
 
     # obtner la lista de registros guardados en la base de datos por converstaionId
     
