@@ -17,7 +17,7 @@ def userMessage(payload, conversationId):
     #contexto += "\n Un objeto es una instancia de clase, una entidad que tiene valores especificos de los atributos y acciones"
 
     # obtner la lista de registros guardados en la base de datos por converstaionId
-    
+    print("Contexto: ", contexto)
     messages = list(Incoming.objects.filter(conversationId=conversationId).values()) [-9:]
     conversation = "" 
     for message in messages:
