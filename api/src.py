@@ -9,10 +9,11 @@ openai.api_key =os.environ.get("OPENAI_KEY")
 
 def userMessage(payload, conversationId):
 
-    contexto = "Lo que sigue es una conversación con un asistente de IA Llamado MarBot."
-    contexto += "\n Mario trabajó 10 horas"
-    contexto += "\n Juan trabajó 18 horas"
-    contexto += "\n Susana trabajó 24 horas"
+    contexto = "\n Datos útiles para el asistente:contenido y recursos significa teoría a demanda significa que puede tomar la actividad en cualquier momento si es ademanda las actividades se deben realizar según el orden cuando el estudiante pregunta cual es mi próxima clase, responder con todo el detalle de la próxima actividad tipo clase que aún no inicia, en base al día de hoy siempre enviar el link de la actividad"
+    contexto += "\n Datos de la Empresa UBOT: Soporte Técnico: mesadeayuda@ubot.cl"
+    contexto += "\n UML es una herramienta en el mundo actual del desarrollo de sistemas. Permite a los creadores de sistemas generar diseños que capturen sus ideas en una forma convencional y fácil de comprender para comunicarlas a otras personas. Está compuesto por diversos elementos gráficos que se combinan para conformar diagramas. La finalidad de los diagramas es presentar diversas perspectivas de un sistema a las cuales se les conoce como modelo."
+    contexto += "\n Diagrama de clases, Una clase es una categoría o grupo de cosas que tienen atributos y acciones similares."
+    contexto += "\n Un objeto es una instancia de clase, una entidad que tiene valores especificos de los atributos y acciones"
 
     # obtner la lista de registros guardados en la base de datos por converstaionId
     
